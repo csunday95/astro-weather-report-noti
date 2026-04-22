@@ -40,10 +40,10 @@ def fetch(url: str, payload: dict) -> dict:
         capture_output=True,
         text=True,
     )
-    if result.returncode \!= 0:
+    if result.returncode != 0:
         raise RuntimeError(f"curl failed: {result.stderr.strip()}")
     data = json.loads(result.stdout)
-    if "code" in data and data.get("code") \!= 200:
+    if "code" in data and data.get("code") != 200:
         raise RuntimeError(f"API error {data.get('code')}: {data.get('message', data)}")
     return data
 
