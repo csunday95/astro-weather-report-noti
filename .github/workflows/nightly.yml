@@ -18,10 +18,13 @@ jobs:
       - run: pip install -r requirements.txt -q
       - name: Run stargazing check
         run: python sf_stargazing.py > latest_result.txt 2>&1 || true
-      - name: Commit result
+      - name: Publish result to results branch
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
+          git checkout --orphan results-tmp
+          git reset
           git add latest_result.txt
-          git diff --staged --quiet || git commit -m "nightly result"
-          git push
+          git commit -m "latest"
+          git push origin results-tmp:results --force
+
