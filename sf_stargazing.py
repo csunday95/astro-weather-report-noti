@@ -18,7 +18,7 @@ HOURLY_PAYLOAD = {
     "startTime": "nowPlus0h",
     "endTime": "nowPlus48h",
 }
-THRESHOLD = 80
+THRESHOLD = 0
 LA = ZoneInfo("America/Los_Angeles")
 
 SF = ephem.Observer()
