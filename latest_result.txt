@@ -1,0 +1,4 @@
+  File "/home/runner/work/astro-weather-report-noti/astro-weather-report-noti/sf_stargazing.py", line 43
+    if result.returncode \!= 0:
+                          ^
+SyntaxError: unexpected character after line continuation character
